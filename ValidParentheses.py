@@ -1,18 +1,18 @@
 class Solution(object):
     def isValid(self, s):
         brkts = {'(' :')', '{':'}', '[':']'}
-        queue = []
+        stack = []
         
         for ch in s:
             if ch in brkts:
-                queue.append(ch)
-            elif len(queue)==0:
+                stack.append(ch)
+            elif len(stack)==0:
                 return False
             else:
-                qPop = queue.pop()
-                if ch!=brkts[qPop]:
+                stcPop = stack.pop()
+                if ch!=brkts[stcPop]:
                     return False
-                    
-        if len(queue)==0:
+
+        if len(stack)==0:
             return True
         return False
