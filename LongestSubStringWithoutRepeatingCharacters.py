@@ -1,6 +1,5 @@
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
-        
         ltrCount = 0
         counts = {0}
         strSize = len(s)
