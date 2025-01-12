@@ -1,17 +1,18 @@
 class Solution(object):
     # Method 01:
-    def vowelStrings(self, words, queries):
-        vowels = {'a', 'e', 'i', 'o', 'u'}
-        res = []
+    # def vowelStrings(self, words, queries):
+    #     vowels = {'a', 'e', 'i', 'o', 'u'}
+    #     res = []
 
-        for l, r in queries:
-            countVowStr = 0
-            for word in words[l:r+1]:
-                if word[0] in vowels and word[-1] in vowels:
-                    countVowStr += 1
-            res.append(countVowStr)
+    #     for l, r in queries:
+    #         countVowStr = 0
+    #         for word in words[l:r+1]:
+    #             if word[0] in vowels and word[-1] in vowels:
+    #                 countVowStr += 1
+    #         res.append(countVowStr)
         
-        return res
+    #     return res
+    # ------------------------------------------
 
     # Method 02: <LEGEND>
 
