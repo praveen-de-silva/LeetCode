@@ -63,3 +63,68 @@ public:
         return convertToPar(result);        
     }
 };
+
+// =================
+//     Method 02
+// =================
+
+class Solution {
+    vector<string> Par;
+    queue<string> Q;
+    
+    public:
+    Solution() {
+        Q.push("(");
+    }
+    
+    int cmdPar(string par_str, int n) {
+        int L=0, R=0;
+        int i=0;
+        
+        do {
+            // cout << par_str[i] << " ";
+            if (par_str[i] == '(') {
+                L++;
+            } else {
+                R++;
+            }
+            
+            i++;
+        } while (L>=R && i<par_str.size());
+        
+        // cout << "L : " << L << " R : " << n  << "| ";
+        
+        if (L < R || L > n) return 0;
+        if (L == R && L == n) return 1;
+        return 2; // if (L >= R) 
+    }
+    
+    
+    void setPar(int n) {
+        while (!Q.empty()) {
+            string temp = Q.front();
+            Q.pop();
+            // cout << cmdPar(temp, n) << " : "  << temp << "\n";
+            switch (cmdPar(temp, n)) {
+                case 0:
+                    continue;
+                    break;
+                    
+                case 1:
+                    // cout << "HI\n";
+                    Par.push_back(temp);
+                    break;
+                    
+                case 2:
+                    Q.push(temp + "(");
+                    Q.push(temp + ")");
+                    break;
+            }
+        }
+    }
+
+    vector<string> generateParenthesis(int n) {
+        setPar(n);
+        return this->Par;      
+    }
+};
