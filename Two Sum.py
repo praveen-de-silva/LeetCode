@@ -1,4 +1,5 @@
 class Solution(object):
+    # get two sum
     def twoSum(self, nums, target):
         '''find indexes of the two numbers'''
         seen = {} # enter seen data
