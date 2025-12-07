@@ -5,7 +5,7 @@ class Solution(object):
         :type k: int
         :rtype: bool
         """
-        mods = {0:{0}}
+        mods = dict()
         n = len(nums)
         crntSum = 0
 
@@ -22,15 +22,17 @@ class Solution(object):
         print(mods)
 
         for r, idxs in mods.items():
-            if len(idxs)<2:
-                continue
-
             crntIdxs = list(idxs)
             m = len(crntIdxs)
-            
-            for j in range(m-1):
-                if abs(crntIdxs[j+1] - crntIdxs[j]) >= 1:
-                    return True
+
+            if r==0 and crntIdxs[-1] >= 1:
+                return True
+
+            if m < 2:
+                continue
+
+            if abs(crntIdxs[0] - crntIdxs[-1]) > 1:
+                return True
         return False
 
 
