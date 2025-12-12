@@ -66,3 +66,33 @@ class Solution(object):
   
         return grid[rows-1][cols-1]
 
+
+# --------------------------------
+# Method 03 : Top-down (recursive)
+# --------------------------------
+
+class Solution(object):
+    def minPathSum(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        rows, cols = len(grid), len(grid[0])
+        mem = {}
+
+        def calc(r, c):
+            if r == 0 and c == 0:
+                return grid[r][c]
+
+            if r < 0 or c < 0:
+                return float('inf')
+
+            if (r, c) in mem:
+                return mem[(r, c)]
+
+            result = grid[r][c] + min(calc(r, c-1), calc(r-1, c))
+            mem[(r, c)] = result
+            return result
+
+        return calc(rows-1, cols - 1)
+  
