@@ -7,16 +7,16 @@ class Solution(object):
         :rtype: List[str]
         """
         result = list()
-        validContainer = {
-            "electronics" :  list(),
-            "grocery" :  list(),
-            "pharmacy" : list(),
-            "restaurant" :  list()
-        }
+        businesses = ["electronics", "grocery", "pharmacy", "restaurant"]
+        validContainer = {k: list() for k in businesses}
        
-        for i in range(len(code)):
-            if code[i].replace("_", "a").isalnum() and businessLine[i] in validContainer and isActive[i]:
-                validContainer[businessLine[i]].append(code[i])
-
-        return sorted(validContainer["electronics"]) + sorted(validContainer["grocery"]) + sorted(validContainer["pharmacy"]) + sorted(validContainer["restaurant"])
+        # -- checking validity -- 
+        for c, b, a in zip(code, businessLine, isActive):
+            if c.replace("_", "a").isalnum() and b in validContainer and a:
+                validContainer[b].append(c)
         
+        # -- adding to the result --
+        for b in businesses:
+            result.extend(sorted(validContainer[b]))
+
+        return result
