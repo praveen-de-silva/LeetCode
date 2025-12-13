@@ -16,16 +16,15 @@ class Solution {
             return -1;
         }
         
-        // memory check
-        if (memory[n]!=0) {
-            return memory[n]; 
-        }
-        
         int f_val;
         
         if (n<=3) {
-            memory[n] = n;
             return n;
+        }
+
+        // memory check
+        if (memory[n]!=0) {
+            return memory[n]; 
         }
         
         f_val = climbStairs(n-1) + climbStairs(n-2);
