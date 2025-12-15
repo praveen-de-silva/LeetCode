@@ -1,3 +1,7 @@
+# --------------------------------
+# Method 01 : More space optimized
+# --------------------------------
+
 class Solution:
     def func(self, n: int) -> int:
         res = 0
