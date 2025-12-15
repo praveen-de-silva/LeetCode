@@ -21,3 +21,25 @@ class Solution:
                 p = q
         
         return pCount
+
+
+# -------------------------------
+# Method 02 : More time optimized
+# -------------------------------
+
+# * used triangle number concept
+
+class Solution:
+    def getDescentPeriods(self, prices: List[int]) -> int:
+        n = len(prices)
+        pCount = 0
+        p = 0 
+
+        for i in range(n):
+            if i+1 < n and (prices[i] == prices[i+1]+1) :
+                pCount += i-p+2
+            else:
+                pCount += 1               
+                p = i+1
+        
+        return pCount
