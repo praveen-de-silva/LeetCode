@@ -49,7 +49,7 @@ class Solution:
         # --- sequentally find the maximum value ---
         result = 0
         for i in range(n):
-            j = bisect_right(starts, events[i][1]) # index after all values <= events[i][1]
+            j = bisect_right(starts, events[i][1]) # index after all values <= events[i][1], Time complexity = O(lg(n))
             total = events[i][2] # current value
             if j < n:
                 total += maxFromHere[j] # max value in the right side
