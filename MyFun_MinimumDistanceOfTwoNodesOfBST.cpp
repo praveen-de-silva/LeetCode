@@ -27,8 +27,8 @@ int findDist(int u, int v) {
 }
 
 int main() {
-    
-    cout << findDist(8, 2);
+    // for test
+    cout << findDist(18, 2);
 
     return 0;
 }
