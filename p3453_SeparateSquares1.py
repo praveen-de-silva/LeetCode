@@ -33,7 +33,7 @@ class Solution:
         for _ in range(60):  # enough precision
             mid = (lo + hi) / 2.0
             # case 01 : 'line' must be within 'lo' and 'mid'
-            if area_below(mid) >= half: 
+            if area_below(mid) >= half: # this '=' makes the most minimum line
                 hi = mid
             # case 02 : 'line' must be within 'mid' and 'hi'
             else:
